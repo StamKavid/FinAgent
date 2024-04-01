@@ -14,11 +14,23 @@ The core of this project is to preprocess the extensive datasets available in FR
 
 Automate the extraction of time series data from the FRED API, selecting relevant macroeconomic indicators as per the project's scope.
 
+```python
+from fredapi import Fred
+
+# Load environment variables from .env file
+load_dotenv()
+
+api_key = os.getenv('FRED_API_KEY')
+
+# Create the FRED Object
+fred = Fred(api_key=api_key)
+```
 
 • __*Data Preprocessing*__
 
 Implement methods to clean and standardize the raw data, making it suitable for analysis. This includes handling missing values, outliers, and anomalies.
 
+**Assumptions:** The missing values have been handled using linear interpolation and backward filling (bfill) or forward filling (ffill) methods.
 
 • __*Time Series Decomposition*__
 
@@ -29,6 +41,9 @@ Break down the economic time series into trend, seasonal, and residual component
 
 Modify the data's temporal resolution to match analysis needs and apply interpolation techniques to estimate missing data points.
 
+```
+resampled_df = df.resample(resample_frequency).interpolate(method=interpolate_method)
+```
 
 • __*Exploratory Data Analysis (EDA)*__
 
@@ -41,21 +56,42 @@ Conduct thorough analysis to gain insights and understand the data's structure, 
 
 Primary programming language for data processing and analysis.
 
+```
+python == 3.10.7
+```
+
 • __*Pandas*__
 
 For data manipulation and handling of time series.
+
+```
+pandas == 2.2.1
+```
 
 • __*Matplotlib/Plotly*__
 
 For generating insightful visualizations of the data.
 
+```
+matplotlib == 3.8.3
+plotly==5.20.0
+```
+
 • __*Statsmodels*__
 
 For time series decomposition and statistical analysis.
 
+```
+statsmodels == 0.14.1
+```
+
 • __*FredAPI*__
 
 To access and interact with the FRED API.
+
+```
+fredapi == 0.5.1
+```
 
 ## 📚 __Data Sources__
 

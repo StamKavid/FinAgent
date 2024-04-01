@@ -8,10 +8,6 @@ import plotly.express as px
 from statsmodels.tsa.seasonal import seasonal_decompose, STL
 from functools import reduce
 
-# pd.set_option('display.max_columns', None)  # or use a specific number if you know the column count
-# pd.set_option('display.max_rows', None)  # or use a specific number if you know the row count
-pd.set_option('display.max_colwidth', None)  # or use a large number like 1000
-
 plt.style.use('ggplot')
 
 # Pandas options

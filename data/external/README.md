@@ -1,14 +1,14 @@
-📈 __US Macro-economic Indices Using FRED Data__ 📊
+# 📈 __US Macro-economic Indices Using FRED Data__ 📊
 
 
-ℹ️ __Introduction__
+## ℹ️ __Introduction__
 
 Since the release of the FRED API, researchers and economists have gained unprecedented access to a wealth of economic data. This repository focuses on the systematic analysis of macroeconomic variables to understand their influence on economic indicators over time.
 
 The core of this project is to preprocess the extensive datasets available in FRED and prepare them for time series analysis, which involves steps like data scraping via the API, resampling to different time frequencies, interpolation to fill missing values, and decomposition to identify trends and seasonal effects.
 
 
-🎯 __Project Objectives__
+## 🎯 __Project Objectives__
 
 • Data Acquisition: Automate the extraction of time series data from the FRED API, selecting relevant macroeconomic indicators as per the project's scope.
 
@@ -25,7 +25,7 @@ The core of this project is to preprocess the extensive datasets available in FR
 • Exploratory Data Analysis (EDA): Conduct thorough analysis to gain insights and understand the data's structure, distribution, and main characteristics.
 
 
-🛠 __Tech Stack & Packages Used__
+## 🛠 __Tech Stack & Packages Used__
 
 • Python: Primary programming language for data processing and analysis.
 
@@ -37,10 +37,10 @@ The core of this project is to preprocess the extensive datasets available in FR
 
 • FredAPI: To access and interact with the FRED API.
 
-📚 __Data Sources__
+## 📚 __Data Sources__
 
 All time series data used in this project are sourced from the FRED database, accessible through the FRED API.
 
-📄 __License__
+## 📄 __License__
 
 The project is open-source, licensed under the MIT License. See the LICENSE file for more details.

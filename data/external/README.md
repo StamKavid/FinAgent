@@ -10,32 +10,52 @@ The core of this project is to preprocess the extensive datasets available in FR
 
 ## 🎯 __Project Objectives__
 
-• Data Acquisition: Automate the extraction of time series data from the FRED API, selecting relevant macroeconomic indicators as per the project's scope.
+• __*Data Acquisition*__
+
+Automate the extraction of time series data from the FRED API, selecting relevant macroeconomic indicators as per the project's scope.
 
 
-• Data Preprocessing: Implement methods to clean and standardize the raw data, making it suitable for analysis. This includes handling missing values, outliers, and anomalies.
+• __*Data Preprocessing*__
+
+Implement methods to clean and standardize the raw data, making it suitable for analysis. This includes handling missing values, outliers, and anomalies.
 
 
-• Time Series Decomposition: Break down the economic time series into trend, seasonal, and residual components to better understand the underlying patterns.
+• __*Time Series Decomposition*__
+
+Break down the economic time series into trend, seasonal, and residual components to better understand the underlying patterns.
 
 
-• Data Resampling and Interpolation: Modify the data's temporal resolution to match analysis needs and apply interpolation techniques to estimate missing data points.
+• __*Data Resampling and Interpolation*__
+
+Modify the data's temporal resolution to match analysis needs and apply interpolation techniques to estimate missing data points.
 
 
-• Exploratory Data Analysis (EDA): Conduct thorough analysis to gain insights and understand the data's structure, distribution, and main characteristics.
+• __*Exploratory Data Analysis (EDA)*__
+
+Conduct thorough analysis to gain insights and understand the data's structure, distribution, and main characteristics.
 
 
 ## 🛠 __Tech Stack & Packages Used__
 
-• Python: Primary programming language for data processing and analysis.
+• __*Python*__
 
-• Pandas: For data manipulation and handling of time series.
+Primary programming language for data processing and analysis.
 
-• Matplotlib/Plotly: For generating insightful visualizations of the data.
+• __*Pandas*__
 
-• Statsmodels: For time series decomposition and statistical analysis.
+For data manipulation and handling of time series.
 
-• FredAPI: To access and interact with the FRED API.
+• __*Matplotlib/Plotly*__
+
+For generating insightful visualizations of the data.
+
+• __*Statsmodels*__
+
+For time series decomposition and statistical analysis.
+
+• __*FredAPI*__
+
+To access and interact with the FRED API.
 
 ## 📚 __Data Sources__
 

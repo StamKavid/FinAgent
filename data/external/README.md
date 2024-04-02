@@ -1,6 +1,5 @@
 # 📈 __US Macro-economic Indices Using FRED Data__ 📊
 
-
 ## ℹ️ __Introduction__
 
 Since the release of the FRED API, researchers and economists have gained unprecedented access to a wealth of economic data. This repository focuses on the systematic analysis of macroeconomic variables to understand their influence on economic indicators over time.
@@ -91,6 +90,14 @@ To access and interact with the FRED API.
 
 ```
 fredapi == 0.5.1
+```
+
+• __*DataPrep*__
+
+Low code visualization library.
+
+```
+dataprep == 0.4.5
 ```
 
 ## 📚 __Data Sources__

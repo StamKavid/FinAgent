@@ -100,6 +100,7 @@ def main():
                               'XRP_ADJ_CLOSE', 'XRP_VOLUME', 'SOL_ADJ_CLOSE', 'SOL_VOLUME']
     # Concatenate all dataframes into a single dataframe
     df_yfinance = pd.concat([df_commodities, df_currencies, df_financial_ind, df_stocks, df_btc_etf, df_crypto_hist], axis=1)
-
-    df_yfinance.to_csv('data/external/Crypto_Historical_Prices/yfinance_data.csv')
-    df_yfinance.to_parquet('data/external/Crypto_Historical_Prices/yfinance_data.parquet')
+    
+    return df_yfinance
+#    df_yfinance.to_csv('data/external/Crypto_Historical_Prices/yfinance_data.csv')
+#    df_yfinance.to_parquet('data/external/Crypto_Historical_Prices/yfinance_data.parquet')

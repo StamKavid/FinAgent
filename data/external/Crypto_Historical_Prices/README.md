@@ -20,7 +20,7 @@ The initiative involves downloading historical price information, performing ext
 
 ## 🎯 __Project Objectives__
 
-• __*Data Acquisition__
+• __*Data Acquisition*__
 
 Automate the retrieval of historical price data for various cryptocurrencies using the yfinance library.
 
@@ -31,17 +31,33 @@ import yfinance as yf
 btc_data = yf.download("BTC-USD", start="2018-01-01", end="2023-12-31")
 ```
 
-• __*Data Preprocessing__
+• __*Data Preprocessing*__
 
 Clean and preprocess the acquired data to ensure accuracy and reliability for further analysis.
 
-• __*Exploratory Data Analysis (EDA)__
+• __*Exploratory Data Analysis (EDA)*__
 
 Conduct an in-depth EDA to examine trends, correlations, and distribution characteristics of cryptocurrency data.
 
-• __*Visualization__
+![alt text](https://github.com/StamKavid/MLCryptoPredictor/blob/dev/data/external/Crypto_Historical_Prices/Images/Adjusted_close_prices_BTC_ETH.png)
 
-Create comprehensive and interactive visualizations to represent the data insights clearly.
+**Figure 1**: Adjusted Close prices for BTC and ETH for 2018 - 2024.
+
+
+![alt text](https://github.com/StamKavid/MLCryptoPredictor/blob/dev/data/external/Crypto_Historical_Prices/Images/trading_volume_BTC_ETH.png)
+
+**Figure 2**: Trading volume for BTC and ETH for 2018 - 2024.
+
+
+![alt text](https://github.com/StamKavid/MLCryptoPredictor/blob/dev/data/external/Crypto_Historical_Prices/Images/BTC_Cnadlestick_chart.png)
+
+**Figure 3**: BTC Candlestick chart for 2024.
+
+
+![alt text](https://github.com/StamKavid/MLCryptoPredictor/blob/dev/data/external/Crypto_Historical_Prices/Images/correlation_adjusted_close_BTC_ETH.png)
+
+
+**Figure 4**: Correlation Adjusted Close prices for BTC and ETH for 2018 - 2024.
 
 
 ## 🛠 __Tech Stack & Packages Used__

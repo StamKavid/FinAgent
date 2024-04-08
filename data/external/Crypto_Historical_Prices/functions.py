@@ -36,6 +36,19 @@ def create_dataframe(data, columns):
     df.columns = columns
     return df
 
+def calculate_gas_usd(df):
+    """
+    Calculates the GAS-USD price from a DataFrame containing ETH-USD and GAS-ETH prices.
+
+    :param df: A pandas DataFrame with 'ETH_ADJ_CLOSE' and 'GAS_ADJ_CLOSE' columns.
+    :return: A pandas DataFrame with an additional 'GAS_USD' column representing the calculated GAS-USD price.
+    """
+    if 'ETH_ADJ_CLOSE' in df.columns and 'GAS_ADJ_CLOSE' in df.columns:
+        df['GAS_USD'] = df['ETH_ADJ_CLOSE'] * df['GAS_ADJ_CLOSE']
+        return df
+    else:
+        raise ValueError("DataFrame must contain 'ETH_ADJ_CLOSE' and 'GAS_ADJ_CLOSE' columns")
+
 def main():
     env_vars = load_environment_variables()
     
@@ -45,7 +58,7 @@ def main():
     financial_indices = ['^VIX', '^TNX', '^FVX', '^RUT', 'TLT', '^IRX']
     stocks = ['TSLA', 'AMD', 'INTC', 'AAPL', 'NVDA', 'META', 'GOOG']
     btc_etfs = ['GBTC', 'ARKB', 'BITB', 'FBTC', 'BTCO', 'IBIT', 'HODL', 'BITO']
-    cryptos = ['BTC-USD', 'ETH-USD', 'USDT-USD', 'USDC-USD', 'DOGE-USD', 'XRP-USD', 'SOL-USD']
+    cryptos = ['BTC-USD', 'ETH-USD', 'USDT-USD', 'USDC-USD', 'DOGE-USD', 'XRP-USD', 'SOL-USD', 'GAS-ETH']
 
     # Download data
     commodities_data = download_data(commodities, env_vars['start_date'], env_vars['end_date'])
@@ -97,10 +110,14 @@ def main():
     df_crypto_hist.columns = ['BTC_OPEN', 'BTC_HIGH', 'BTC_LOW', 'BTC_CLOSE', 'BTC_ADJ_CLOSE', 'BTC_VOLUME',
                               'ETH_ADJ_CLOSE', 'ETH_VOLUME', 'USDT_ADJ_CLOSE', 'USDT_VOLUME',
                               'USDC_ADJ_CLOSE', 'USDC_VOLUME', 'DOGE_ADJ_CLOSE', 'DOGE_VOLUME',
-                              'XRP_ADJ_CLOSE', 'XRP_VOLUME', 'SOL_ADJ_CLOSE', 'SOL_VOLUME']
+                              'XRP_ADJ_CLOSE', 'XRP_VOLUME', 'SOL_ADJ_CLOSE', 'SOL_VOLUME', 'GAS_ADJ_CLOSE', 'GAS_VOLUME']
+   
     # Concatenate all dataframes into a single dataframe
     df_yfinance = pd.concat([df_commodities, df_currencies, df_financial_ind, df_stocks, df_btc_etf, df_crypto_hist], axis=1)
     
-    return df_yfinance
-#    df_yfinance.to_csv('data/external/Crypto_Historical_Prices/yfinance_data.csv')
+    result_df = calculate_gas_usd(df_yfinance)
+
+    result_df.to_csv('data/external/Crypto_Historical_Prices/yahoo_finance.csv')
+    return result_df
+    
 #    df_yfinance.to_parquet('data/external/Crypto_Historical_Prices/yfinance_data.parquet')

@@ -1,56 +1,60 @@
-# 📈 __US Macro-economic Indices Using FRED Data__ 📊
+# 📊__Bitcoin Market Analysis (Technical Indicators)__ 📉
 
-[View the Economic Indicators (FRED) - EDA Report](./Reports/FRED_EDA_Report.html)
 
+[View the Bitcoin Data Analysis Report](./Reports/btc_technical_analysis_report.html)
 
 ## ℹ️ __Introduction__
 
-Since the release of the FRED API, researchers and economists have gained unprecedented access to a wealth of economic data. This repository focuses on the systematic analysis of macroeconomic variables to understand their influence on economic indicators over time.
+With the increasing importance of cryptocurrencies in global markets, particularly Bitcoin, there is a need for robust data analysis tools and techniques to understand their market behaviors. This folder focuses on the extraction and analysis of Bitcoin data from Yahoo Finance, utilizing advanced technical indicators to provide in-depth insights into market trends.
 
-The core of this project is to preprocess the extensive datasets available in FRED and prepare them for time series analysis, which involves steps like data scraping via the API, resampling to different time frequencies, interpolation to fill missing values, and decomposition to identify trends and seasonal effects.
+The core objectives include scraping historical Bitcoin prices, computing various technical indicators, and preparing the data for comprehensive analysis. The use of the Python library '__ta__' for generating technical indicators and the '__dataprep__' library for creating detailed visual data reports are key components of this project.
 
 
 ## 🎯 __Project Objectives__
 
+
 • __*Data Acquisition*__
 
-Automate the extraction of time series data from the FRED API, selecting relevant macroeconomic indicators as per the project's scope.
+Automate the extraction of historical Bitcoin data from Yahoo Finance using Python libraries.
 
 ```python
-from fredapi import Fred
+import yfinance as yf
 
-# Load environment variables from .env file
-load_dotenv()
+# Define the ticker symbol
+tickerSymbol = 'BTC-USD'
 
-api_key = os.getenv('FRED_API_KEY')
+# Get data on this ticker
+tickerData = yf.Ticker(tickerSymbol)
 
-# Create the FRED Object
-fred = Fred(api_key=api_key)
+# Get historical prices for this ticker
+btc_data = tickerData.history(period='1d', start= start_date, end= end_date)
 ```
 
-• __*Data Preprocessing*__
+• __*Technical Indicator Computation*__
 
-Implement methods to clean and standardize the raw data, making it suitable for analysis. This includes handling missing values, outliers, and anomalies.
+Compute 85 technical indicators using the ta library (https://github.com/bukosabino/ta) to analyze Bitcoin's market dynamics. Indicators include Moving Average Convergence Divergence (MACD), Relative Strength Index (RSI), Money Flow Index (MFI), and Bollinger Bands.
 
-**Assumptions:** The missing values have been handled using linear interpolation and backward filling (bfill) or forward filling (ffill) methods.
+```python
+from ta import add_all_ta_features
 
-• __*Time Series Decomposition*__
-
-Break down the economic time series into trend, seasonal, and residual components to better understand the underlying patterns.
-
-
-• __*Data Resampling and Interpolation*__
-
-Modify the data's temporal resolution to match analysis needs and apply interpolation techniques to estimate missing data points.
-
-```
-resampled_df = df.resample(resample_frequency).interpolate(method=interpolate_method)
+# Add technical indicators
+btc_data = add_all_ta_features(
+    df=btc_data,
+    open="Open", high="High", low="Low", close="Close", volume="Volume"
+)
 ```
 
-• __*Exploratory Data Analysis (EDA)*__
+• __*Data Report Creation*__
 
-Conduct thorough analysis to gain insights and understand the data's structure, distribution, and main characteristics.
+Utilize the dataprep library (https://github.com/sfu-db/dataprep) to generate a comprehensive HTML report showcasing correlations, missing value analysis, statistical summaries, and various plots such as KDE, Box Plot, Q-Q Plot, and Histograms.
 
+```python
+from dataprep.eda import create_report
+
+# Create an HTML data report
+report = create_report(btc_data)
+report.save(filename="Bitcoin_Analysis_Report.html")
+```
 
 ## 🛠 __Tech Stack & Packages Used__
 
@@ -70,34 +74,25 @@ For data manipulation and handling of time series.
 pandas == 2.2.1
 ```
 
-• __*Matplotlib/Plotly*__
+• __*ta*__
 
-For generating insightful visualizations of the data.
-
-```
-matplotlib == 3.8.3
-plotly==5.20.0
-```
-
-• __*Statsmodels*__
-
-For time series decomposition and statistical analysis.
+Python library for calculating technical indicators.
 
 ```
-statsmodels == 0.14.1
+ta == 0.11.0
 ```
 
-• __*FredAPI*__
+• __*yfinance*__
 
-To access and interact with the FRED API.
+To access and interact with Yahoo Finance for financial data.
 
 ```
-fredapi == 0.5.1
+yfinance == 0.2.37
 ```
 
 • __*DataPrep*__
 
-Low code visualization library.
+For creating low-code data visualization reports.
 
 ```
 dataprep == 0.4.5
@@ -105,8 +100,8 @@ dataprep == 0.4.5
 
 ## 📚 __Data Sources__
 
-All time series data used in this project are sourced from the FRED database, accessible through the FRED API.
+The Bitcoin data is sourced from Yahoo Finance, utilizing the yfinance library to scrape historical price information.
 
 ## 📄 __License__
 
-The project is open-source, licensed under the MIT License. See the LICENSE file for more details.
+This project is open-source, licensed under the MIT License. See the LICENSE file for more details.

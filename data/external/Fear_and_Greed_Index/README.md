@@ -9,6 +9,11 @@ The Fear and Greed Index for Bitcoin (BTC) is a popular metric used to gauge the
 
 The project employs Python for data scraping, handling, and saving the data into a CSV format, enabling further analysis on how the sentiments change over time and how they might influence market behavior.
 
+<p align="center">
+  <img src="https://github.com/StamKavid/MLCryptoPredictor/blob/dev/data/external/Fear_and_Greed_Index/Images/fear-and-greed-index.png" alt="alt text">
+</p>
+
+**Figure 1**: BTC Fear and Greed Index for 12 April 2024.
 
 ## 🎯 __Project Objectives__
 

@@ -1,13 +1,13 @@
-# 📊Bitcoin Market Analysis (Technical Indicators) 📉
+# 📊Bitcoin Fear & Greed Index Analysis 📉
 
 
-[View the Bitcoin Data Analysis Report](./Reports/btc_technical_analysis_report.html)
+[Learn about how the Fear & Greed Index is Calculated](https://alternative.me/crypto/fear-and-greed-index/#api)
 
 ## ℹ️ __Introduction__
 
-With the increasing importance of cryptocurrencies in global markets, particularly Bitcoin, there is a need for robust data analysis tools and techniques to understand their market behaviors. This folder focuses on the extraction and analysis of Bitcoin data from Yahoo Finance, utilizing advanced technical indicators to provide in-depth insights into market trends.
+The Fear and Greed Index for Bitcoin (BTC) is a popular metric used to gauge the market's emotional sentiment towards cryptocurrency. This folder is dedicated to scrapping the Fear and Greed Index data from the Alternative.me API and analyzing it to understand how market sentiments correlate with price movements of Bitcoin.
 
-The core objectives include scraping historical Bitcoin prices, computing various technical indicators, and preparing the data for comprehensive analysis. The use of the Python library '__ta__' for generating technical indicators and the '__dataprep__' library for creating detailed visual data reports are key components of this project.
+The project employs Python for data scraping, handling, and saving the data into a CSV format, enabling further analysis on how the sentiments change over time and how they might influence market behavior.
 
 
 ## 🎯 __Project Objectives__
@@ -15,45 +15,40 @@ The core objectives include scraping historical Bitcoin prices, computing variou
 
 • __*Data Acquisition*__
 
-Automate the extraction of historical Bitcoin data from Yahoo Finance using Python libraries.
+Automatically retrieve the Fear and Greed Index for Bitcoin using the provided API and Python scripting.
 
 ```python
-import yfinance as yf
+# Importing necessary libraries
+import pandas as pd
+import requests
+import os
+from dotenv import load_dotenv
 
-# Define the ticker symbol
-tickerSymbol = 'BTC-USD'
+# Load environment variables
+load_dotenv()
 
-# Get data on this ticker
-tickerData = yf.Ticker(tickerSymbol)
-
-# Get historical prices for this ticker
-btc_data = tickerData.history(period='1d', start= start_date, end= end_date)
+def fetch_fear_and_greed_index():
+    # Base URL for the Fear and Greed Index API
+    base_url = "https://api.alternative.me/fng/?limit=0"
+    response = requests.get(base_url)
+    if response.status_code == 200:
+        return response.json()['data']
+    else:
+        print(f"Failed to fetch data: {response.status_code}")
+        return []
 ```
 
-• __*Technical Indicator Computation*__
+• __*Data Processing*__
 
-Compute 85 technical indicators using the ta library (https://github.com/bukosabino/ta) to analyze Bitcoin's market dynamics. Indicators include Moving Average Convergence Divergence (MACD), Relative Strength Index (RSI), Money Flow Index (MFI), and Bollinger Bands.
-
-```python
-from ta import add_all_ta_features
-
-# Add technical indicators
-btc_data = add_all_ta_features(
-    df=btc_data,
-    open="Open", high="High", low="Low", close="Close", volume="Volume"
-)
-```
-
-• __*Data Report Creation*__
-
-Utilize the dataprep library (https://github.com/sfu-db/dataprep) to generate a comprehensive HTML report showcasing correlations, missing value analysis, statistical summaries, and various plots such as KDE, Box Plot, Q-Q Plot, and Histograms.
+Extract, transform, and save the retrieved data into a CSV file for ease of analysis, focusing on entries since the user-specified start date.
 
 ```python
-from dataprep.eda import create_report
-
-# Create an HTML data report
-report = create_report(btc_data)
-report.save(filename="Bitcoin_Analysis_Report.html")
+def save_to_csv(data, filename, start_date):
+    df = pd.DataFrame(data)
+    df['timestamp'] = pd.to_datetime(df['timestamp'], unit='s')
+    df = df[df['timestamp'] >= start_date]
+    df.to_csv(filename, index=False)
+    print(f"Data successfully saved to {filename}")
 ```
 
 ## 🛠 __Tech Stack & Packages Used__
@@ -74,33 +69,17 @@ For data manipulation and handling of time series.
 pandas == 2.2.1
 ```
 
-• __*ta*__
+• __*Requests*__
 
-Python library for calculating technical indicators.
-
-```
-ta == 0.11.0
-```
-
-• __*yfinance*__
-
-To access and interact with Yahoo Finance for financial data.
+To perform HTTP requests to the API.
 
 ```
-yfinance == 0.2.37
-```
-
-• __*DataPrep*__
-
-For creating low-code data visualization reports.
-
-```
-dataprep == 0.4.5
+requests == 2.31.0
 ```
 
 ## 📚 __Data Sources__
 
-The Bitcoin data is sourced from Yahoo Finance, utilizing the yfinance library to scrape historical price information.
+Data is sourced directly from the Alternative.me API, which provides the Fear and Greed Index.
 
 ## 📄 __License__
 

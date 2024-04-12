@@ -1,4 +1,4 @@
-# 📊__Bitcoin Market Analysis (Technical Indicators)__ 📉
+# 📊Bitcoin Market Analysis (Technical Indicators) 📉
 
 
 [View the Bitcoin Data Analysis Report](./Reports/btc_technical_analysis_report.html)

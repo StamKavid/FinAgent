@@ -1,7 +1,8 @@
 # 📊Bitcoin Market Analysis (Technical Indicators) 📉
 
+1) [View the Bitcoin Data Analysis Report](./Reports/btc_technical_analysis_report.html)
 
-[View the Bitcoin Data Analysis Report](./Reports/btc_technical_analysis_report.html)
+2) [Technical Analysis in Python - Documentation](https://technical-analysis-library-in-python.readthedocs.io/en/latest/ta.html#ta.volume.MFIIndicator)
 
 ## ℹ️ __Introduction__
 

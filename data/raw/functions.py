@@ -48,7 +48,7 @@ def main():
     end_date = os.getenv('end_date')
 
     # Define the folder containing the CSV files
-    data_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), '')
+    data_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'csv')
 
     # Print the data_folder path to check
     print("data_folder:", data_folder)

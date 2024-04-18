@@ -50,9 +50,6 @@ def main():
     # Define the folder containing the CSV files
     data_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'csv')
 
-    # Print the data_folder path to check
-    print("data_folder:", data_folder)
-
     # Read data from CSV files
     btc_dominance = read_data(os.path.join(data_folder, r'bitcoin-dominance_(Coinmarketcap).csv'))
     data_gpr = read_data(os.path.join(data_folder,r'data_gpr_export.csv'))

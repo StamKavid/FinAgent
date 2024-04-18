@@ -5,9 +5,12 @@ import pandas as pd
 from fredapi import Fred
 from functions import load_and_process_seasonal_data, process_time_series_data
 
+# Setting up the API key
 load_dotenv()
 api_key = os.getenv('FRED_API_KEY')
 fred = Fred(api_key= api_key)
+data_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), '')
+
 
 # Macroeconomic Indicators
 sp500_processed, sp500_adjusted = load_and_process_seasonal_data(fred.get_series, 'SP500', 'sp500')
@@ -42,4 +45,4 @@ merged_df_processed = merged_df.bfill().ffill().interpolate(method='pad')
 
 # merged_df_processed.to_csv('fred_processed.csv', index=True)
 
-merged_df_processed.to_parquet('fred_processed.parquet.gzip', compression='gzip')
+merged_df_processed.to_parquet(os.path.join(data_folder, 'fred_processed.parquet.gzip'), compression='gzip')

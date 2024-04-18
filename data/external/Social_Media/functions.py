@@ -54,9 +54,17 @@ def deEmojify(data):
                       "]+", re.UNICODE)
     return re.sub(emoj, '', data)
 
-# Load the data
-df = pl.read_csv('c:/Users/Stamatis/Desktop/MLCryptoPredictor/MLCryptoPredictor/data/external/Social_Media/csv/Bitcoin_tweets.csv', ignore_errors=True)
-df_2 = pl.read_csv('c:/Users/Stamatis/Desktop/MLCryptoPredictor/MLCryptoPredictor/data/external/Social_Media/csv/Bitcoin_tweets_dataset_2.csv', ignore_errors=True)
+# Define the folder containing the CSV files
+data_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), '')
+
+# Print the data_folder path to check
+print("data_folder:", data_folder)
+
+# Load the 
+df = pl.read_csv(os.path.join(data_folder, r'Bitcoin_tweets.csv'), ignore_errors= True)
+df_2 = pl.read_csv(os.path.join(data_folder, r'Bitcoin_tweets_dataset_2.csv.csv'), ignore_errors=True)
+# df = pl.read_csv('c:/Users/Stamatis/Desktop/MLCryptoPredictor/MLCryptoPredictor/data/external/Social_Media/csv/Bitcoin_tweets.csv', ignore_errors=True)
+# df_2 = pl.read_csv('c:/Users/Stamatis/Desktop/MLCryptoPredictor/MLCryptoPredictor/data/external/Social_Media/csv/Bitcoin_tweets_dataset_2.csv', ignore_errors=True)
 
 df_tweet1 = df.to_pandas()
 df_tweet2 = df_2.to_pandas()

@@ -116,8 +116,6 @@ def main():
     df_yfinance = pd.concat([df_commodities, df_currencies, df_financial_ind, df_stocks, df_btc_etf, df_crypto_hist], axis=1)
     
     result_df = calculate_gas_usd(df_yfinance)
-
-    result_df.to_csv('data/external/Crypto_Historical_Prices/yahoo_finance.csv')
+    result_df.reset_index(inplace=True)
     return result_df
     
-#    df_yfinance.to_parquet('data/external/Crypto_Historical_Prices/yfinance_data.parquet')

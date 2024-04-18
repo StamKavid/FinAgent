@@ -40,4 +40,6 @@ merged_df = reduce(lambda left, right: pd.merge(left, right, on='index', how='ou
 
 merged_df_processed = merged_df.bfill().ffill().interpolate(method='pad')
 
-merged_df_processed.to_csv('data/external/FRED/fred_processed.csv', index=True)
+# merged_df_processed.to_csv('fred_processed.csv', index=True)
+
+merged_df_processed.to_parquet('fred_processed.parquet.gzip', compression='gzip')

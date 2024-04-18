@@ -28,9 +28,9 @@ def fetch_fear_and_greed_index():
         print(f"Failed to fetch data: {response.status_code}")
         return []
 
-def save_to_csv(data, filename):
+def main():
     # Convert list of dictionaries to DataFrame
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(fetch_fear_and_greed_index())
     
     # Convert Unix timestamps to human-readable date format "YYYY-MM-DD HH:MM:SS"
     if 'timestamp' in df.columns:
@@ -39,19 +39,8 @@ def save_to_csv(data, filename):
     # Filter the DataFrame for entries with a timestamp after January 1, 2018
     df = df[df['timestamp'] >= start_date]
 
-    # Save the DataFrame to a CSV file
-    df.to_csv(filename, index=False)
+    return df
 
-# Example usage
-filename = "fear_and_greed_index.csv"
-fear_and_greed_data = fetch_fear_and_greed_index()
-
-# Save data with timestamp conversion
-if fear_and_greed_data:
-    save_to_csv(fear_and_greed_data, filename)
-    print(f"Data successfully saved to {filename}")
-else:
-    print("No data available to save.")
 
 
 

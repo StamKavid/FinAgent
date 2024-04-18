@@ -31,10 +31,14 @@ def main():
     end_date = os.getenv('end_date')
 
     btc_usd_data = fetch_historical_data('BTC-USD', start_date, end_date)
+    
     if btc_usd_data is not None:
         btc_usd_data = add_technical_analysis_features(btc_usd_data)
-        print(btc_usd_data.head())  # Display the first few rows of the data
-
+        btc_usd_data.reset_index(inplace=True)
+    else:
+        btc_usd_data = None
+        
+    return btc_usd_data
 
 
 

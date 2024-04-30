@@ -1,3 +1,7 @@
+# ignore all data files due to GitHub storage limit
+*.parquet.gzip
+*.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

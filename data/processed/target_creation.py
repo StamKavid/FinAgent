@@ -4,18 +4,14 @@ from functools import reduce
 import os
 import matplotlib.pyplot as plt
 import numpy as np
-# from dotenv import load_dotenv
 from datetime import datetime, timedelta
-from dataprep.eda import plot, create_report
-
 from scipy.signal._peak_finding import _boolrelextrema
+
 
 df_processed = pd.read_parquet('C:\\Users\\Stamatis\\Desktop\\MLCryptoPredictor\\MLCryptoPredictor\\data\\processed\\processed_data.parquet.gzip')
 
 # Rename the columns
 df_processed.columns = df_processed.columns.str.replace(' ', '_')  # Replace spaces with underscores
-
-# df_processed.isnull().values.any()
 
 df_processed = df_processed.ffill()
 
@@ -40,15 +36,6 @@ for window_size in window_sizes:
     btc_target[f'btc_price_min_{window_size}d'] = _boolrelextrema(np.array(btc_target.Adj_Close), np.less, order=window_size) * 1
     btc_target[f'btc_price_max_{window_size}d'] = _boolrelextrema(np.array(btc_target.Adj_Close), np.greater, order=window_size) * 1
 
-# fig, ax = plt.subplots(1,3, figsize=(20,5))
-# ax[0].plot(btc_target.btc_daily_absolute_change)
-# ax[0].set_title('BTC Absolute Price Change')
-# ax[1].plot(btc_target.btc_daily_returns_perc)
-# ax[1].set_title('BTC Daily Returns Percentage Change')
-# ax[2].plot(btc_target.btc_log_difference)
-# ax[2].set_title('BTC Log Difference Change')
-# plt.show()
-
 btc_target.reset_index(inplace=True)
 
-btc_target.to_parquet('C:\\Users\\Stamatis\\Desktop\\MLCryptoPredictor\\MLCryptoPredictor\\data\\processed\\btc_target.parquet.gzip', compression='gzip')
+# btc_target.to_parquet('C:\\Users\\Stamatis\\Desktop\\MLCryptoPredictor\\MLCryptoPredictor\\data\\processed\\btc_target.parquet.gzip', compression='gzip')

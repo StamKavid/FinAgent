@@ -48,7 +48,7 @@ def main():
     end_date = os.getenv('end_date')
 
     # Define the folder containing the CSV files
-    data_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'csv')
+    data_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'files')
 
     # Read data from CSV files
     btc_dominance = read_data(os.path.join(data_folder, r'bitcoin-dominance_(Coinmarketcap).csv'))
@@ -66,11 +66,33 @@ def main():
     wtui_df = convert_year_to_period_index(wtui_df, 'year')
     wui_df = convert_year_to_period_index(wui_df, 'year')
 
+    df_dominance = pd.DataFrame(btc_dominance)
+
+    # Select only numeric columns for summation
+    numeric_cols = df_dominance.select_dtypes(include=[float, int]).columns
+
+    # Calculate sum of numeric columns for each row
+    df_dominance['sum'] = df_dominance[numeric_cols].sum(axis=1)
+
+    # Calculate percentage for each column
+    for col in df_dominance.columns[1:-1]:  # Exclude 'Date', 'Sum', and 'Others'
+        df_dominance[col + '_percentage_dominance'] = df_dominance[col] / df_dominance['sum']
+        
+    df_dominance.columns = df_dominance.columns.str.upper()
+
+    df_dominance.rename(columns={'DATE': 'Date'}, inplace=True)
+
+    # Select specific columns to keep
+    specific_columns = ['BTC_PERCENTAGE_DOMINANCE', 'ETH_PERCENTAGE_DOMINANCE', 'USDT_PERCENTAGE_DOMINANCE', 'BNB_PERCENTAGE_DOMINANCE', 'SOL_PERCENTAGE_DOMINANCE', 'OTHERS_PERCENTAGE_DOMINANCE']
+
+    # Create a new DataFrame containing only the specific columns
+    df_dominance_edit = df_dominance[['Date'] + specific_columns].copy()
+
     # Create a dummy DataFrame with the date range
     dummy_df = pd.DataFrame({'Date': pd.date_range(start=start_date, end=end_date)})
     dummy_df['Date'] = pd.to_datetime(dummy_df['Date']).dt.strftime("%Y-%m-%d")
 
     # Merge all DataFrames
-    merged_df = merge_data_frames(dummy_df, btc_dominance, data_gpr, market_cap, market_volume, wtui_df, wui_df)
+    merged_df = merge_data_frames(dummy_df, df_dominance_edit, data_gpr, market_cap, market_volume, wtui_df, wui_df)
 
     return merged_df

@@ -1,68 +1,49 @@
+# 📈 **Historical Crypto Data Analysis and Uncertainty Indices** 📊
 
-# 📈 __Historical Crypto Data Analysis Using Yahoo Finance__ 📊
+## ℹ️ **Introduction**
 
-[View the BTC - EDA Report]()
+This repository is dedicated to the extraction and analysis of historical cryptocurrency data (BTC Dominance, Market cap e.g.) along with global policy and world uncertainty indices. 
+The focus is on examining various aspects of the cryptocurrency market alongside economic and policy uncertainty indicators to identify potential correlations and insights.
 
-## ℹ️ __Introduction__
+## 💡 **Analysis Insights**
 
-This repository is dedicated to the extraction and analysis of historical cryptocurrency data from Yahoo Finance, leveraging the yfinance Python library. The focus is on examining the price dynamics and market behavior of leading cryptocurrencies over time, utilizing statistical and machine learning techniques to uncover trends and patterns.
+• Analyzed BTC dominance compared to other cryptocurrencies sourced from CoinmarketCap.
 
-The initiative involves downloading historical price information, performing extensive exploratory data analysis (EDA), and applying quantitative analysis to understand the volatility and relationships between different cryptocurrencies.
+• Incorporated Global Policy Uncertainty (GPR) data obtained from [Policy Uncertainty](https://www.policyuncertainty.com/gpr.html) to explore its potential impact on cryptocurrency markets.
 
-## 💡 __Analysis Insights__
+• Studied crypto market capitalization and trading volume trends sourced from CoinmarketCap.
 
-• Focused on major cryptocurrencies like Bitcoin (BTC) and Ethereum (ETH) to track price changes and volatility since 2018.
+• Integrated World Trade Uncertainty Index (WTUI) and World Uncertainty Index (WUI) data from [World Uncertainty Index](https://worlduncertaintyindex.com/data/) to assess their relationship with cryptocurrency market dynamics.
 
-• Developed candlestick charts for detailed price movement analysis.
+## 🎯 **Project Objectives**
 
-• Constructed a correlation matrix to understand inter-relationships between different cryptocurrencies.
+• **Data Acquisition**
 
-
-## 🎯 __Project Objectives__
-
-• __*Data Acquisition*__
-
-Automate the retrieval of historical price data for various cryptocurrencies using the yfinance library.
+Automate the retrieval of various datasets including BTC dominance, GPR data, crypto market cap, crypto volume data, WTUI data, and WUI data.
 
 ```python
-import yfinance as yf
+# Example code for data acquisition using pandas
+import pandas as pd
 
-# Example to fetch historical data for Bitcoin
-btc_data = yf.download("BTC-USD", start="2018-01-01", end="2023-12-31")
+btc_dominance_data = pd.read_csv("btc_dominance_data.csv")
+gpr_data = pd.read_csv("gpr_data.csv")
+crypto_market_cap_data = pd.read_csv("crypto_market_cap_data.csv")
+crypto_volume_data = pd.read_csv("crypto_volume_data.csv")
+wtui_data = pd.read_csv("wtui_data.csv")
+wui_data = pd.read_csv("wui_data.csv")
+
 ```
+• **Data Preprocessing**
 
-• __*Data Preprocessing*__
+Clean and preprocess the acquired data to handle missing values, outliers, and ensure data consistency.
 
-Clean and preprocess the acquired data to ensure accuracy and reliability for further analysis.
+• **Exploratory Data Analysis (EDA)**
 
-• __*Exploratory Data Analysis (EDA)*__
-
-Conduct an in-depth EDA to examine trends, correlations, and distribution characteristics of cryptocurrency data.
-
-![alt text](https://github.com/StamKavid/MLCryptoPredictor/blob/dev/data/external/Crypto_Historical_Prices/Images/Adjusted_close_prices_BTC_ETH.png)
-
-**Figure 1**: Adjusted Close prices for BTC and ETH for 2018 - 2024.
-
-
-![alt text](https://github.com/StamKavid/MLCryptoPredictor/blob/dev/data/external/Crypto_Historical_Prices/Images/trading_volume_BTC_ETH.png)
-
-**Figure 2**: Trading volume for BTC and ETH for 2018 - 2024.
-
-
-![alt text](https://github.com/StamKavid/MLCryptoPredictor/blob/dev/data/external/Crypto_Historical_Prices/Images/BTC_Cnadlestick_chart.png)
-
-**Figure 3**: BTC Candlestick chart for 2024.
-
-
-![alt text](https://github.com/StamKavid/MLCryptoPredictor/blob/dev/data/external/Crypto_Historical_Prices/Images/correlation_adjusted_close_BTC_ETH.png)
-
-
-**Figure 4**: Correlation Adjusted Close prices for BTC and ETH for 2018 - 2024.
-
+Conduct an in-depth EDA to analyze trends, correlations, and distribution characteristics of the cryptocurrency data alongside uncertainty indices.
 
 ## 🛠 __Tech Stack & Packages Used__
 
-• __*Python*__
+• Python
 
 Primary language for scripting and analysis.
 
@@ -70,23 +51,7 @@ Primary language for scripting and analysis.
 python == 3.10.7
 ```
 
-• __*yfinance*__
-
-For fetching historical market data.
-
-```
-yfinance == 0.2.37
-```
-
-• __*mplfinance*__
-
-Matplotlib utilities for the visualization, and visual analysis, of financial data
-
-```
-mplfinance == 0.12.10b0
-```
-
-• __*Pandas*__
+• pandas
 
 For data manipulation and analysis.
 
@@ -94,7 +59,7 @@ For data manipulation and analysis.
 pandas == 2.2.1
 ```
 
-• __*NumPy*__
+• numpy
 
 For numerical computing.
 
@@ -102,26 +67,37 @@ For numerical computing.
 numpy == 1.26.4
 ```
 
-• __*Matplotlib/Seaborn*__
+• stationarizer
 
-For data visualization.
-
-```
-matplotlib == 3.8.3
-seaborn == 0.13.2
-```
-
-• __*Quantstats*__
-
-For performance and risk statistics, and generating report sheets.
+For stationarizing time series data.
 
 ```
-quantstats == 0.0.62
+stationarizer == 0.0.11
+```
+
+• missingno
+
+For visualizing missing data.
+
+```
+missingno == 0.5.2
+```
+
+• scipy
+
+For scientific computing and statistical analysis.
+
+```
+scipy == 1.12.0
 ```
 
 ## 📚 __Data Sources__
 
-Historical cryptocurrency data fetched from Yahoo Finance using the yfinance library.
+• Historical cryptocurrency data fetched from CoinmarketCap.
+
+• Global Policy Uncertainty (GPR) data from Policy Uncertainty.
+
+• World Trade Uncertainty Index (WTUI) and World Uncertainty Index (WUI) data from World Uncertainty Index.
 
 ## 📄 __License__
 

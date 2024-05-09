@@ -15,9 +15,9 @@ The focus is on examining various aspects of the cryptocurrency market alongside
 
 • Integrated World Trade Uncertainty Index (WTUI) and World Uncertainty Index (WUI) data from [World Uncertainty Index](https://worlduncertaintyindex.com/data/) to assess their relationship with cryptocurrency market dynamics.
 
-## 🎯 **Project Objectives**
+## 🎯 __Project Objectives__
 
-• **Data Acquisition**
+• __*Data Acquisition*__
 
 Automate the retrieval of various datasets including BTC dominance, GPR data, crypto market cap, crypto volume data, WTUI data, and WUI data.
 
@@ -33,17 +33,17 @@ wtui_data = pd.read_csv("wtui_data.csv")
 wui_data = pd.read_csv("wui_data.csv")
 
 ```
-• **Data Preprocessing**
+• __*Data Preprocessing*__
 
 Clean and preprocess the acquired data to handle missing values, outliers, and ensure data consistency.
 
-• **Exploratory Data Analysis (EDA)**
+• __*Exploratory Data Analysis (EDA)*__
 
 Conduct an in-depth EDA to analyze trends, correlations, and distribution characteristics of the cryptocurrency data alongside uncertainty indices.
 
 ## 🛠 __Tech Stack & Packages Used__
 
-• Python
+• __*Python*__
 
 Primary language for scripting and analysis.
 
@@ -51,7 +51,7 @@ Primary language for scripting and analysis.
 python == 3.10.7
 ```
 
-• pandas
+• __*Pandas*__
 
 For data manipulation and analysis.
 
@@ -59,7 +59,7 @@ For data manipulation and analysis.
 pandas == 2.2.1
 ```
 
-• numpy
+• __*Numpy*__
 
 For numerical computing.
 
@@ -67,7 +67,7 @@ For numerical computing.
 numpy == 1.26.4
 ```
 
-• stationarizer
+• __*Stationarizer*__
 
 For stationarizing time series data.
 
@@ -75,7 +75,7 @@ For stationarizing time series data.
 stationarizer == 0.0.11
 ```
 
-• missingno
+• __*Missingno*__
 
 For visualizing missing data.
 
@@ -83,7 +83,7 @@ For visualizing missing data.
 missingno == 0.5.2
 ```
 
-• scipy
+• __*Scipy*__
 
 For scientific computing and statistical analysis.
 

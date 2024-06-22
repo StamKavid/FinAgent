@@ -1,8 +1,6 @@
 
 # 📈 __Cryptocurrency (BTC) Price Prediction using AI/ML Models__ 📊
 
-[View the BTC - EDA Report]()
-
 ## ℹ️ __Introduction__
 
 This repository is dedicated to the extraction and analysis of historical cryptocurrency data from Yahoo Finance, leveraging the yfinance Python library. The focus is on examining the price dynamics and market behavior of leading cryptocurrencies over time, utilizing statistical and machine learning techniques to uncover trends and patterns.

@@ -1,4 +1,4 @@
-# 📊 Cryptocurrency Data Processing - Summary
+# 📊 Cryptocurrency Data Processing - Summary 📈
 
 ## Overview
 

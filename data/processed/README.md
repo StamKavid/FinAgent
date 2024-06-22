@@ -1,4 +1,4 @@
-# Cryptocurrency Processed Data Generation
+# 📊 Cryptocurrency Processed Data Generation 📈
 
 ## Overview
 
@@ -33,8 +33,3 @@ It combines data from multiple sources and generates various technical indicator
 - Creates potential target variables for predictive modeling:
   - Local price minima and maxima for different time windows (7, 14, 21, 30, 60 days)
 - Uses `scipy.signal._peak_finding._boolrelextrema` to identify local extrema
-
-## Usage
-
-1. Ensure the input parquet file `btc_technical_indicators.parquet.gzip` is in the correct directory.
-2. Run the main function to generate the processed dataset.

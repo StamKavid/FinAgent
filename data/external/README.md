@@ -77,7 +77,7 @@ This project is open-source and licensed under the MIT License. See the LICENSE 
 
 ## 🔗 Additional Resources
 
-- [BTC - EDA Report](.\data\external\Technical_Indicators\Reports\btc_technical_analysis_report.html)
-- [Economic Indicators (FRED) - EDA Report](.\data\external\FRED\Reports\FRED_EDA_Report.html)
+- [BTC - EDA Report](.\Technical_Indicators\Reports\btc_technical_analysis_report.html)
+- [Economic Indicators (FRED) - EDA Report](.\FRED\Reports\FRED_EDA_Report.html)
 - [Technical Analysis in Python Documentation](https://technical-analysis-library-in-python.readthedocs.io/en/latest/ta.html)
 - [Fear & Greed Index Calculation](https://alternative.me/crypto/fear-and-greed-index/#api)

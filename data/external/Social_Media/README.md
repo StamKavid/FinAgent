@@ -15,7 +15,7 @@ The core objectives include extracting tweets using specific keywords or hashtag
 Automate the extraction of tweets using the Kaggle Dataset, filtering by specific keywords or hashtags for BTC.
 
 
-• __*Sentiment Analysis*_
+• __*Sentiment Analysis*__
 
 Perform sentiment analysis on the collected tweets using pre-trained FinBert to categorize tweets as positive, negative, or neutral.
 
@@ -39,12 +39,12 @@ def estimate_sentiment_single(news):
 print("Inserting sentiment")
 ```
 
-• __*User and Engagement Metrics*_
+• __*User and Engagement Metrics*__
 
 Extract and analyze metrics such as unique users, follower counts, and tweet frequency.
 
 
-• __*Data Visualization*_
+• __*Data Visualization*__
 
 Create visualizations to represent sentiment distribution, user engagement trends, and tweet frequency over time.
 pythonCopyimport matplotlib.pyplot as plt

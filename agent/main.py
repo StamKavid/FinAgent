@@ -8,8 +8,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class FinancialCrew:
-  def __init__(self, crypto):
+  def __init__(self, crypto, date):
     self.crypto = crypto
+    self.date = date
 
   def run(self):
     agents = CryptoAnalysisAgents()
@@ -21,7 +22,7 @@ class FinancialCrew:
 
     research_task = tasks.research(research_analyst_agent, self.crypto)
     financial_task = tasks.financial_analysis(financial_analyst_agent)
-    recommend_task = tasks.recommend(investment_advisor_agent)
+    recommend_task = tasks.recommend(investment_advisor_agent, self.date)
 
     crew = Crew(
       agents=[
@@ -42,14 +43,20 @@ class FinancialCrew:
     return result
 
 if __name__ == "__main__":
-  print("## Welcome to Financial Analysis Crew")
+  print("## Welcome to Cryptocurrency Financial Analysis Multi-Agent System ##")
   print('-------------------------------')
   crypto = input(
     dedent("""
       What is the crypto you want to analyze?
     """))
   
-  financial_crew = FinancialCrew(crypto)
+  date = input(
+    dedent("""
+      What is the date of the forecast?
+    """)
+  )
+  
+  financial_crew = FinancialCrew(crypto, date)
   result = financial_crew.run()
   print("\n\n########################")
   print("## Here is the Report")

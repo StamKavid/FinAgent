@@ -60,7 +60,7 @@ class CryptoAnalysisTasks():
         """)
     )
 
-  def recommend(self, agent):
+  def recommend(self, agent, date):
     return Task(
         description=dedent(f"""
             Review and synthesize the analyses provided by the Financial Analyst and the Research Analyst. 
@@ -71,8 +71,10 @@ class CryptoAnalysisTasks():
             - Market sentiment
             - Insider trading activity
             - Upcoming events
+            - Forecasting of the crypto price for {date} with the use of the forecaster tool.
 
             Your final report MUST include:
+            - Forecasting of the crypto price for {date} with the use of the forecaster tool.
             - Whether the market is bullish, bearish, or neutral for the specific crypto.
             - A detailed and clear investment stance and strategy
             - Supporting evidence from the analyses
@@ -82,9 +84,10 @@ class CryptoAnalysisTasks():
             {self.__tip_section()}
         """),
         agent=agent,
-        expected_output=dedent("""
+        expected_output=dedent(f"""
             A comprehensive investment recommendation report for the next week that includes:
-            - A clear investment stance and strategy
+            - Forecasting of the crypto price for {date} with the use of the forecaster tool.
+            - A clear investment stance and strategy.
             - Whether the market is bullish, bearish, or neutral for the specific crypto.
             - Supporting evidence from financial and market analyses
             - Sections on insider trading activity and upcoming events

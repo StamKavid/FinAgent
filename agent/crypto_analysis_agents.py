@@ -3,29 +3,14 @@ from crewai import Agent
 from tools.calculator_tools import CalculatorTools
 from tools.search_tools import SearchTools
 from langchain_community.tools import YahooFinanceNewsTool
-from langchain_openai import ChatOpenAI
+from tools.forecasting_tool import ForecastingTool
+from llm_config import  llm_gpt35, llm_gpt4o
 import os
 import openai
 from textwrap import dedent
 from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
-openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.api_base = os.getenv("OPENAI_API_BASE")
-
-llm_llama = ChatOpenAI(
-    model = "lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF",
-    base_url=os.getenv("OPENAI_API_BASE"),
-    api_key=os.getenv("OPENAI_API_KEY"),
-    temperature= 0.4
-)
-
-llm_gemma2 = ChatOpenAI(
-    model = "bartowski/gemma-2-9b-it-GGUF",
-    base_url=os.getenv("OPENAI_API_BASE"),
-    api_key=os.getenv("OPENAI_API_KEY"),
-    temperature= 0.4
-)
 
 class CryptoAnalysisAgents():
   def financial_analyst(self):
@@ -47,7 +32,7 @@ class CryptoAnalysisAgents():
         # SearchTools.search_internet_duck,
         CalculatorTools.calculate,
       ],
-      llm = llm_gemma2
+      llm = llm_gpt4o
     )
 
   def research_analyst(self):
@@ -70,7 +55,7 @@ class CryptoAnalysisAgents():
         SearchTools.search_news,
         YahooFinanceNewsTool(),
       ],
-      llm = llm_gemma2
+      llm = llm_gpt4o
   )
 
   def investment_advisor(self):
@@ -84,8 +69,8 @@ class CryptoAnalysisAgents():
       backstory= dedent("""
                         As the most experienced investment advisor, you excel at combining various analytical 
                         insights to formulate strategic investment advice. Your expertise spans across multiple 
-                        financial domains, with a particular focus on cryptocurrencies. Currently, you are working 
-                        for a high-profile client who expects nothing short of excellence. Your ability to deliver 
+                        financial domains, with a particular focus on cryptocurrencies. 
+                        Currently, you are working for a high-profile client who expects nothing short of excellence. Your ability to deliver 
                         precise and impactful recommendations is crucial to impress and retain this important client.
                         """),
       verbose=True,
@@ -93,7 +78,8 @@ class CryptoAnalysisAgents():
         SearchTools.search_internet,
         SearchTools.search_news,
         CalculatorTools.calculate,
-        YahooFinanceNewsTool()
+        YahooFinanceNewsTool(),
+        ForecastingTool.predict
       ],
-      llm = llm_gemma2
+      llm = llm_gpt4o
     )

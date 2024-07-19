@@ -1,6 +1,4 @@
 from langchain.tools import tool
-
-
 class CalculatorTools():
 
   @tool("Make a calculation")

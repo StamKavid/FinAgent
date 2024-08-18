@@ -1,4 +1,4 @@
-# 📈 __ FinAgent: Cryptocurrency (BTC) Report using AI Agents and Price Prediction using AI/ML Models__ 📊
+# 📈 __FinAgent: Multi-Agent AI for Bitcoin Analytics & Forecasting__ 📊
 
 ## __Introduction__
 

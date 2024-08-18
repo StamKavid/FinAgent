@@ -1,10 +1,15 @@
-# 📈 __Cryptocurrency (BTC) Price Prediction using AI/ML Models__ 📊
+# 📈 __ FinAgent: Cryptocurrency (BTC) Report using AI Agents and Price Prediction using AI/ML Models__ 📊
 
 ## __Introduction__
 
-This repository is dedicated to the extraction and analysis of historical cryptocurrency data from Yahoo Finance, leveraging the yfinance Python library. The focus is on examining the price dynamics and market behavior of leading cryptocurrencies over time, utilizing statistical and machine learning techniques to uncover trends and patterns.
+This repository showcases an AI multi-agent system designed for comprehensive cryptocurrency analysis, with a particular focus on Bitcoin (BTC). The system leverages artificial intelligence agents and machine learning models to extract, process, and analyze historical cryptocurrency data.
 
-The initiative involves downloading historical price information, performing extensive exploratory data analysis (EDA), and applying quantitative analysis to understand the volatility and relationships between different cryptocurrencies.
+Our multi-agent framework consists of several specialized agents working in concert:
+• **Financial Analyst Agent**: Collect and summarize recent news articles, press releases, and market analyses related to the cryptocurrency BTC and its industry
+• **Research Analyst Agent**: Conduct a thorough analysis of the cryptocurrency's financial health and market performance
+• **Investment Advisor Agent**: Review and synthesize the analyses provided by the Financial Analyst and the Research Analyst, combining these insights to form a comprehensive investment recommendation, by leveraging an AI model for price prediction.
+
+At the core of our system is a sophisticated ML model, employed by the Investment Advisor Agent, which serves as a powerful tool for price prediction. This model is trained on historical data.
 
 ## 💡 __Analysis Insights__
 
@@ -56,6 +61,14 @@ Conduct an in-depth EDA to examine trends, correlations, and distribution charac
 
 **Figure 4**: Correlation Adjusted Close prices for BTC and ETH for 2018 - 2024.
 
+• __*Investment Report Generation*__
+
+The multi-agent approach allows for a more robust, efficient, and comprehensive analysis of cryptocurrency data, enabling us to uncover complex patterns and trends that might be missed by traditional single-model approaches.
+
+![image](https://github.com/user-attachments/assets/2c99ca2f-d31c-403b-8b93-e574cb0a019d)
+
+
+**Figure 5**: Output Report of Investment Advisor Agent.
 
 ## 🛠 __Tech Stack & Packages Used__
 
@@ -116,9 +129,31 @@ For performance and risk statistics, and generating report sheets.
 quantstats == 0.0.62
 ```
 
+• __*crewai*__
+
+For multi-agent framework.
+
+```
+crewai == 0.35.8
+```
+
 ## 📚 __Data Sources__
 
-Historical cryptocurrency data fetched from Yahoo Finance using the yfinance library.
+• **Yahoo Finance**: This provides historical data on crypto prices, ETFs, BTC ETFs, gold price etc.
+
+• **Fear and Greed Index**: This index measures the fear and greed sentiment in the BTC market.
+
+• **FRED (Federal Reserve Economic Data)**: This provides data related to GDP, CPI, Inflation rates, mostly for the US market.
+
+• **Social media (Twitter-X)**: This refers to the number of tweets related to the BTC topic, derived from Kaggle.
+
+• **Technical Indicators**: Includes 85 technical indicators to analyze Bitcoin’s market dynamics.
+
+• **CoinMarketCap**: This provides data on different cryptocurrencies, including their market cap, volume, cryptocurrency dominance.
+
+• **Global Policy Uncertainty (GPR)**: This provides data from Global Policy Uncertainty.
+
+• **World Uncertainty Index (WUI)**: This provides data from the World Uncertainty Index.
 
 ## 📄 __License__ 
 

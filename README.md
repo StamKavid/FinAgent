@@ -2,7 +2,7 @@
 
 ## __Introduction__
 
-This repository showcases an AI multi-agent system designed for comprehensive cryptocurrency analysis, with a particular focus on Bitcoin (BTC). The system leverages artificial intelligence agents and machine learning models to extract, process, and analyze historical cryptocurrency data.
+This repository showcases an AI multi-agent system designed for comprehensive cryptocurrency analysis, with a particular focus on Bitcoin (BTC), tailored for my MBA Dissertation Thesis. The system leverages artificial intelligence agents and machine learning models to extract, process, and analyze historical cryptocurrency data.
 
 Our multi-agent framework consists of several specialized agents working in concert:
 
@@ -25,6 +25,12 @@ At the core of our system is a sophisticated ML model, employed by the Investmen
 • Developed candlestick charts for detailed price movement analysis.
 
 • Constructed a correlation matrix to understand inter-relationships between different cryptocurrencies.
+
+• Build up Tree-based model for Feature Selection.
+
+• Build Time-Series model for BTC Price Prediction.
+
+• Build AI multi-agent system for comprehensive BTC reporting.
 
 
 ## 🎯 __Project Objectives__

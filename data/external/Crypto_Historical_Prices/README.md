@@ -1,7 +1,7 @@
 
 # 📈 __Historical Crypto Data Analysis Using Yahoo Finance__ 📊
 
-[View the BTC - EDA Report]()
+[View the BTC - EDA Report](https://htmlpreview.github.io/?https://github.com/StamKavid/FinAgent/blob/main/data/external/Crypto_Historical_Prices/Reports/btc_performance_report.html)
 
 ## __Introduction__
 

@@ -1,6 +1,6 @@
 # 📈 __US Macro-economic Indices Using FRED Data__ 📊
 
-[View the Economic Indicators (FRED) - EDA Report](./Reports/FRED_EDA_Report.html)
+[View the Economic Indicators (FRED) - EDA Report](https://htmlpreview.github.io/?https://github.com/StamKavid/FinAgent/blob/main/data/external/FRED/Reports/FRED_EDA_Report.html)
 
 
 ## __Introduction__

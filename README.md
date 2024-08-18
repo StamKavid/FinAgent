@@ -14,6 +14,10 @@ Our multi-agent framework consists of several specialized agents working in conc
 
 At the core of our system is a sophisticated ML model, employed by the Investment Advisor Agent, which serves as a powerful tool for price prediction. This model is trained on historical data.
 
+![image](https://github.com/user-attachments/assets/669a3ff8-89f1-4613-980d-a3ed4d73ba9e)
+
+
+
 ## 💡 __Analysis Insights__
 
 • Focused on major cryptocurrencies like Bitcoin (BTC) and Ethereum (ETH) to track price changes and volatility since 2018.

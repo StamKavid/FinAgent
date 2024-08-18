@@ -120,7 +120,7 @@ quantstats == 0.0.62
 
 Historical cryptocurrency data fetched from Yahoo Finance using the yfinance library.
 
-## 📄 __License__
+## 📄 __License__ 
 
 This project is open-sourced under the MIT License. Refer to the LICENSE file for more information.
-=======
+

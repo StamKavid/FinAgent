@@ -5,8 +5,11 @@
 This repository showcases an AI multi-agent system designed for comprehensive cryptocurrency analysis, with a particular focus on Bitcoin (BTC). The system leverages artificial intelligence agents and machine learning models to extract, process, and analyze historical cryptocurrency data.
 
 Our multi-agent framework consists of several specialized agents working in concert:
-• **Financial Analyst Agent**: Collect and summarize recent news articles, press releases, and market analyses related to the cryptocurrency BTC and its industry
-• **Research Analyst Agent**: Conduct a thorough analysis of the cryptocurrency's financial health and market performance
+
+• **Financial Analyst Agent**: Collect and summarize recent news articles, press releases, and market analyses related to the cryptocurrency BTC and its industry.
+
+• **Research Analyst Agent**: Conduct a thorough analysis of the cryptocurrency's financial health and market performance.
+
 • **Investment Advisor Agent**: Review and synthesize the analyses provided by the Financial Analyst and the Research Analyst, combining these insights to form a comprehensive investment recommendation, by leveraging an AI model for price prediction.
 
 At the core of our system is a sophisticated ML model, employed by the Investment Advisor Agent, which serves as a powerful tool for price prediction. This model is trained on historical data.

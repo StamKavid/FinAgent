@@ -1,4 +1,3 @@
-
 # 📈 __Cryptocurrency (BTC) Price Prediction using AI/ML Models__ 📊
 
 ## __Introduction__
@@ -124,3 +123,4 @@ Historical cryptocurrency data fetched from Yahoo Finance using the yfinance lib
 ## 📄 __License__
 
 This project is open-sourced under the MIT License. Refer to the LICENSE file for more information.
+=======

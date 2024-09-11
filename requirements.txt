@@ -94,7 +94,7 @@ fastparquet==2024.2.0
 ffmpy==0.3.2
 filelock==3.9.0
 Flask==2.2.5
-Flask-Cors==3.0.10
+Flask-Cors==5.0.0
 flatbuffers==23.1.4
 fonttools==4.50.0
 fqdn==1.5.1
